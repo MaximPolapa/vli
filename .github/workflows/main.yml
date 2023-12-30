@@ -24,3 +24,14 @@ jobs:
         run: |
           mvn clean
           mvn -B package --file pom.xml
+      - name: Build Docker image
+        uses: mr-smithers-excellent/docker-build-push@v6.2
+        with:
+          context: .
+          dockerfile: Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd:latest
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      # Додаткові кроки для запуску Docker контейнера можуть бути реалізовані тут
