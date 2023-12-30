@@ -34,5 +34,4 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
           pushImage: true
-
       # Додаткові кроки для запуску Docker контейнера можуть бути реалізовані тут
