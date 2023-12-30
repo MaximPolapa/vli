@@ -27,11 +27,12 @@ jobs:
       - name: Build Docker image
         uses: mr-smithers-excellent/docker-build-push@v6.2
         with:
-          context: .
+          image: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd
+          tags: latest
+          registry: docker.io
           dockerfile: Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-cicd:latest
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          pushImage: true
 
       # Додаткові кроки для запуску Docker контейнера можуть бути реалізовані тут
