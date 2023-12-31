@@ -9,6 +9,5 @@ COPY target/study-spring-2022-1.0-SNAPSHOT.jar /usr/app/app.jar
 
 # Відкриваємо порт 8080
 EXPOSE 8080
-
 # Запускаємо наш додаток
 CMD ["java", "-jar", "app.jar"]
