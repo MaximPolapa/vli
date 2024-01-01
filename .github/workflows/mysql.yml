@@ -1,0 +1,39 @@
+name: MySQL Service
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  mysql-job:
+    name: Run MySQL
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testdb
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Wait for MySQL
+        run: |
+          until mysqladmin ping -h"127.0.0.1" --silent; do
+            echo 'waiting for mysql'
+            sleep 2
+          done
+        env:
+          MYSQL_ROOT_PASSWORD: root
+
+      # Тут можна додати кроки для запуску тестів або інших завдань, які вимагають бази даних
