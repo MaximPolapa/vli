@@ -11,3 +11,4 @@ COPY target/study-spring-2022-1.0-SNAPSHOT.jar /usr/app/app.jar
 EXPOSE 8080
 # Запускаємо наш додаток
 CMD ["java", "-jar", "app.jar"]
+
