@@ -16,7 +16,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: testdb
         ports:
-          - 3306:3306
+          - 3307:3306
         options: >-
           --health-cmd="mysqladmin ping"
           --health-interval=10s
@@ -36,4 +36,3 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
 
-      # Тут можна додати кроки для запуску тестів або інших завдань, які вимагають бази даних
