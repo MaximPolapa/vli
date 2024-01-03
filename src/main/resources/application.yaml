@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://172.18.0.2:3306/vns?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false #jdbc:mysql://localhost:3306/vns?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
     username: root
-    password: root1111
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
