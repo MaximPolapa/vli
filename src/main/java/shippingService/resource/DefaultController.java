@@ -14,9 +14,9 @@ public class DefaultController {
         return "index";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/login")
     public ModelAndView register(){
-        return new ModelAndView("register");
+        return new ModelAndView("login");
     }
 
     @GetMapping("/courses")
@@ -29,4 +29,5 @@ public class DefaultController {
         modelAndView.addObject("courseId", courseId); // Додаємо ID курсу до моделі, якщо потрібно
         return modelAndView;
     }
+
 }
